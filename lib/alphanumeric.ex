@@ -41,7 +41,8 @@ defmodule Alphanumeric do
 
   def get_index(collection, param) when is_list(collection) do
     Enum.with_index(collection)
-    |> Enum.filter_map(fn {x, _} -> x == param end, fn {_, i} -> i end)
+    |> Enum.filter(fn {x, _} -> x == param end)
+    |> Enum.map(fn {_, i} -> i end)
     |> List.first
   end
 
