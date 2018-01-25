@@ -1,5 +1,5 @@
 defmodule Alphanumeric do
-  @table String.split("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "")
+  @table String.split("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "", trim: true)
 
   def to_decimal_number62(number) when number > 61 do
     to_decimal_number62(div(number, 62)) <> Enum.fetch!(@table, rem(number, 62))
