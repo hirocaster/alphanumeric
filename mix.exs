@@ -3,7 +3,7 @@ defmodule Alphanumeric.Mixfile do
 
   def project do
     [app: :alphanumeric,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      description: "Convert 62 decimal number tools. Integer to String and String to Integer.",
      package: package(),
