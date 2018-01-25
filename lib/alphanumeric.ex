@@ -1,5 +1,5 @@
 defmodule Alphanumeric do
-  @table String.split("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "")
+  @table String.split("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", "", trim: true)
 
   def to_decimal_number62(number) when number > 61 do
     to_decimal_number62(div(number, 62)) <> Enum.fetch!(@table, rem(number, 62))
@@ -41,7 +41,8 @@ defmodule Alphanumeric do
 
   def get_index(collection, param) when is_list(collection) do
     Enum.with_index(collection)
-    |> Enum.filter_map(fn {x, _} -> x == param end, fn {_, i} -> i end)
+    |> Enum.filter(fn {x, _} -> x == param end)
+    |> Enum.map(fn {_, i} -> i end)
     |> List.first
   end
 
